@@ -1,9 +1,12 @@
 import "./App.css";
-import auth from "./firebase.init";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <h2>hello</h2>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    </div>
+  );
 }
 
 export default App;
