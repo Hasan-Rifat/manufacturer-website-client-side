@@ -2,27 +2,27 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  //   const user = true;
   const user = false;
   const menuItem = (
     <>
       <li>
-        <NavLink className="mr-4 text-accent font-semibold" to="/">
+        <NavLink className="my-2 mr-5   text-accent font-semibold" to="/">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink className="mr-4 text-accent font-semibold" to="/blogs">
+        <NavLink className="my-2 mr-5   text-accent font-semibold" to="/blogs">
           Blogs
         </NavLink>
       </li>
-      <li>
-        <NavLink className="mr-4 text-accent font-semibold" to="/profile">
-          Profile
-        </NavLink>
-      </li>
+
       {user && (
         <li>
-          <NavLink className="mr-4 text-accent font-semibold" to="/dashboard">
+          <NavLink
+            className="my-2 mr-5   text-accent font-semibold"
+            to="/dashboard"
+          >
             Dashboard
           </NavLink>
         </li>
@@ -30,7 +30,10 @@ const Navbar = () => {
 
       {user && (
         <li>
-          <NavLink className="mr-4 text-accent font-semibold" to="/logout">
+          <NavLink
+            className="my-2 mr-5   text-accent font-semibold"
+            to="/logout"
+          >
             Logout
           </NavLink>
         </li>
@@ -39,12 +42,18 @@ const Navbar = () => {
       {!user && (
         <>
           <li>
-            <NavLink className="mr-4 text-accent font-semibold  " to="/login">
+            <NavLink
+              className="my-2 mr-5   text-accent font-semibold  "
+              to="/login"
+            >
               Login
             </NavLink>
           </li>
           <li>
-            <NavLink className="mr-4 text-accent font-semibold " to="/register">
+            <NavLink
+              className="my-2 mr-5   text-accent font-semibold "
+              to="/register"
+            >
               Register
             </NavLink>
           </li>
@@ -53,7 +62,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <header className="shadow-lg py-2">
+    <header className="shadow-lg mb-6 lg:mb-12">
       <div className=" max-w-7xl mx-auto">
         <div class="navbar bg-base-100">
           <div class="navbar-start">
@@ -76,7 +85,7 @@ const Navbar = () => {
               </label>
               <ul
                 tabindex="0"
-                class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 grid gap-x-10"
               >
                 {menuItem}
               </ul>
@@ -86,12 +95,22 @@ const Navbar = () => {
             </Link>
           </div>
           <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal p-0">{menuItem}</ul>
+            <ul class="menu menu-horizontal p-0 gap-y-5">{menuItem}</ul>
           </div>
           <div class="navbar-end">
-            <Link to="/login" class="btn">
-              Get started
-            </Link>
+            {!user && (
+              <button
+                to="/login"
+                class=" border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary"
+              >
+                Get started
+              </button>
+            )}
+            {user && (
+              <button className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary">
+                <Link to="/profile">Profile</Link>
+              </button>
+            )}
           </div>
         </div>
       </div>
