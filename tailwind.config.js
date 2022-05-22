@@ -4,7 +4,15 @@ module.exports = {
     extend: {},
   },
   daisyui: {
-    themes: ["light"],
+    themes: [
+      {
+        mytheme: {
+          primary: "#ffd200",
+          secondary: "#2457aa",
+          accent: "#000b1c",
+        },
+      },
+    ],
   },
   plugins: [require("daisyui")],
 };
