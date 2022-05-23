@@ -1,31 +1,91 @@
 import React from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
+import Loading from "./Loading";
 import SocialLogin from "./SocialLogin";
 
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  let errorMessage;
+  if (error || updateError) {
+    errorMessage = (
+      <span className="text-sm text-red-500">
+        {error?.message} {updateError?.message}
+      </span>
+    );
+  } else {
+    errorMessage = "";
+  }
+
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    // navigate(from, { replace: true });
   };
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  if (loading || updating) {
+    return <Loading />;
+  }
+
+  // console.log(user?.user?.displayName);
   return (
     <div className="py-10 lg:py-36 max-w-7xl justify-center flex items-center mx-auto">
-      <div class="card w-2/4 mx-auto  shadow-2xl bg-base-100">
-        <div class="card-body">
-          <form onClick={handleSubmit(onSubmit)}>
-            <div class="form-control">
-              <h2 class="text-3xl font-bold text-accent">Register</h2>
-              <label class="label">
-                <span class="text-accent">Your Email</span>
+      <div className="card w-2/4 mx-auto  shadow-2xl bg-base-100">
+        <div className="card-body">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-control">
+              <h2 className="text-3xl font-bold text-accent">Register</h2>
+              <label className="label">
+                <span className="text-accent">Your Name</span>
+              </label>
+              <input
+                type="name"
+                placeholder="Enter your Name"
+                className="input input-bordered text-secondary"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "name is required",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.name?.type === "required" && (
+                  <span className="text-red-500">{errors.name.message}</span>
+                )}
+              </label>
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="text-accent">Your Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Enter your email address"
-                class="input input-bordered text-secondary"
+                className="input input-bordered text-secondary"
                 {...register("email", {
                   required: {
                     value: true,
@@ -37,25 +97,29 @@ const Register = () => {
                   },
                 })}
               />
-              <label class="label">
+              <label className="label">
                 {errors.email?.type === "required" && (
-                  <span className="text-red-500">{errors.email.message}</span>
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
                 )}
               </label>
-              <label class="label">
+              <label className="label">
                 {errors.email?.type === "pattern" && (
-                  <span className="text-red-500">{errors.email.message}</span>
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
                 )}
               </label>
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="text-accent">Password</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="text-accent">Password</span>
               </label>
               <input
                 type="password"
                 placeholder="password"
-                class="input input-bordered text-secondary"
+                className="input input-bordered text-secondary"
                 {...register("password", {
                   required: {
                     value: true,
@@ -67,14 +131,14 @@ const Register = () => {
                   },
                 })}
               />
-              <label class="label">
+              <label className="label">
                 {errors.password?.type === "required" && (
-                  <span className="text-red-500">
+                  <span className="label-text-alt text-red-500">
                     {errors.password.message}
                   </span>
                 )}
               </label>
-              <label class="label">
+              <label className="label">
                 {errors.password?.type === "minLength" && (
                   <span className="text-red-500">
                     {errors.password.message}
@@ -83,23 +147,28 @@ const Register = () => {
               </label>
             </div>
             <div className="flex justify-between ">
-              <div class="">
-                <button class="text-secondary ">Forgot password?</button>
+              <div className="">
+                <button className="text-secondary ">Forgot password?</button>
               </div>
-              <div class="">
+              <div className="">
                 <Link to="/login">
                   <span className="text-neutral">Have a account?</span>
-                  <span class="text-secondary"> Login</span>
+                  <span className="text-secondary"> Login</span>
                 </Link>
               </div>
             </div>
-            <div class="form-control mt-6">
-              <button class="btn btn-primary">Login</button>
+            <div className="form-control mt-6">
+              <input
+                type="submit"
+                className="btn btn-primary"
+                value="Register"
+              />
             </div>
           </form>
-
-          <div class="divider">OR</div>
-          <SocialLogin />
+          {/* {signInError} */}
+          {errorMessage}
+          <div className="divider">OR</div>
+          <button onClick={() => signInWithGoogle()}>Continue Google</button>
         </div>
       </div>
     </div>

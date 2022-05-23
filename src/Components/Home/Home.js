@@ -1,10 +1,21 @@
 import React from "react";
+import ManageProducts from "../Dashboard/ManageProducts";
+import UserReviews from "../Dashboard/UserReviews";
+import Footer from "../Shared/Footer";
+import Banner from "./Banner";
+import Services from "./Services";
+import Star from "./Star";
 
 const Home = () => {
   return (
-    <div>
-      <h2>Home</h2>
-    </div>
+    <main>
+      <Banner />
+      <Star />
+      <ManageProducts />
+      <Services />
+      <UserReviews />
+      <Footer />
+    </main>
   );
 };
 
