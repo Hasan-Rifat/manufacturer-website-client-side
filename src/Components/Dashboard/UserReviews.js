@@ -31,16 +31,8 @@ const UserReviews = () => {
         backgroundPosition: "center center",
       }}
     >
-      <div className="max-w-7xl mx-auto pb-20 ">
-        <div
-          class="hero-overlay bg-opacity-60 "
-          /* style={{
-            gridColumnEnd: 1,
-            gridRowStart: 1,
-            height: "100%",
-            backgroundColor: "#02112b",
-          }} */
-        ></div>
+      <div className="max-w-7xl mx-auto px-4 pb-20 ">
+        <div class="hero-overlay bg-opacity-60 "></div>
         <div className="py-4">
           <h5 className="text-2xl font-semibold text-accent">TESTIMONIAL</h5>
           <h2 className="text-5xl font-bold text-accent py-3">
@@ -58,30 +50,34 @@ const UserReviews = () => {
           modules={[FreeMode, Pagination]}
           className="mySwiper"
         >
-          {reviews.map((review, index) => (
-            <SwiperSlide key={index}>
-              <div class="card bg-base-100 shadow-2xl">
-                <div class="card-body justify-center">
-                  <div class="avatar justify-center">
-                    <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                      <img
-                        src="https://api.lorem.space/image/face?hash=3174"
-                        alt=""
-                      />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+            {reviews.map((review, index) => (
+              <SwiperSlide key={index}>
+                <div class="card bg-base-100 shadow-2xl w-full">
+                  <div class="card-body justify-center">
+                    <div class="avatar justify-center">
+                      <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img
+                          src="https://api.lorem.space/image/face?hash=3174"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <h2 class="font-bold text-xl text-accent text-center py-4">
+                        <small>{review.name}</small>
+                      </h2>
+                      <p class="text-accent text-center">
+                        <small>
+                          If a dog chews shoes whose shoes does he choose?
+                        </small>
+                      </p>
                     </div>
                   </div>
-                  <div className="text-center">
-                    <h2 class="font-bold text-xl text-accent text-center py-4">
-                      {review.name}
-                    </h2>
-                    <p class="text-accent text-center">
-                      If a dog chews shoes whose shoes does he choose?
-                    </p>
-                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
+              </SwiperSlide>
+            ))}
+          </div>
         </Swiper>
       </div>
     </section>

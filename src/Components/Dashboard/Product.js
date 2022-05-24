@@ -1,17 +1,21 @@
 import React from "react";
 
 const Product = ({ product }) => {
-  const { name, price, description, image } = product;
+  const { name, price, description, image, quantity } = product;
   return (
     <div>
       <div class="card bg-white rounded-lg shadow-2xl dark:bg-gray-800 dark:border-gray-700 ">
-        <img src={image} class="p-8 rounded-t-lg w-52" alt="" />
+        <div className="mx-auto">
+          <img src={image} class="p-8 rounded-t-lg w-56" alt="" />
+        </div>
 
         <div class="px-5 pb-5">
-          <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            {name.slice(0, 18)}
+          <h5 class="text-xl text-left font-semibold tracking-tight text-gray-900 dark:text-white">
+            <small>{name.slice(0, 18)}</small>
           </h5>
-          <p>{description.slice(0, 100)}</p>
+          <p className="text-left">
+            <small>{description.slice(0, 100)}</small>
+          </p>
 
           <div class="flex items-center mt-2.5 mb-5">
             <svg
@@ -56,6 +60,9 @@ const Product = ({ product }) => {
             </svg>
             <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
               5.0
+            </span>
+            <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+              Quantity {quantity}
             </span>
           </div>
           <div class="flex justify-between items-center">

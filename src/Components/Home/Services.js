@@ -20,7 +20,7 @@ const Services = () => {
     },
   ]; */
   return (
-    <section className="max-w-7xl mx-auto bg-white py-20">
+    <section className="max-w-7xl mx-auto px-4 bg-white py-20">
       <div className="grid grid-cols-1 lg:grid-cols-3 ">
         <Service
           name="Free Shipping"

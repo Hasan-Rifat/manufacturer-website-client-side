@@ -11,7 +11,7 @@ const ManageProducts = () => {
     return <Loading />;
   }
   return (
-    <section className="max-w-7xl mx-auto pb-12">
+    <section className="max-w-7xl mx-auto px-4 pb-12">
       <div className="py-4">
         <h5 className="text-2xl font-semibold text-accent">HOW IT WORKS</h5>
         <h2 className="text-5xl font-bold text-accent py-3">

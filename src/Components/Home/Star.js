@@ -2,9 +2,9 @@ import React from "react";
 
 const Star = () => {
   return (
-    <section className="py-12">
-      <div className="max-w-7xl mx-auto shadow-2xl rounded ">
-        <div class="  grid grid-cols-3 p-5">
+    <section className="py-12 px-4">
+      <div className="max-w-7xl mx-auto  shadow-2xl rounded ">
+        <div class="  grid lg:grid-cols-3 p-5">
           <div class="stat">
             <div class="stat-figure text-primary">
               <svg

@@ -3,6 +3,7 @@ import ManageProducts from "../Dashboard/ManageProducts";
 import UserReviews from "../Dashboard/UserReviews";
 import Footer from "../Shared/Footer";
 import Banner from "./Banner";
+import OurNews from "./OurNews";
 import Services from "./Services";
 import Star from "./Star";
 
@@ -13,6 +14,7 @@ const Home = () => {
       <Star />
       <ManageProducts />
       <Services />
+      <OurNews />
       <UserReviews />
       <Footer />
     </main>
