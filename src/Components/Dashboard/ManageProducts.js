@@ -19,7 +19,7 @@ const ManageProducts = () => {
         </h2>
         <div class="divider bg-primary h-1 w-28 mx-auto"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {products.map((product) => (
           <Product product={product} key={product._id}></Product>
         ))}
