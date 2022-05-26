@@ -1,6 +1,5 @@
 [
   {
-    "_id": 1,
     "name": "DEWALT 4-Piece T-Shank Jig Saw Blade Case",
     "price": "110.00",
     "description": "The T-shape blades can be used on virtually all modern jigsaws and are interchangeable across models. If you have an older jigsaw or a jigsaw that is a cheaper current model, you may need to use U-shaped shank blades, which are still available.",
@@ -9,7 +8,6 @@
     "image": "https://themetechmount.com/html/fixfellow/images/product/pro-01-plus.png"
   },
   {
-    "_id": 2,
     "name": "Reel Fiberglass Tape",
     "price": "150.00",
     "description": "Fiberglass tape can be used for easy and accurate measuring while also standing up to wear and tear at the job site. Not to mention, the added safety from electrical hazards. You can find a fiberglass tape measure in a variety of different units (such as metric, feet and inches, as well as feet and tenths).",
@@ -17,7 +15,6 @@
     "image": "https://themetechmount.com/html/fixfellow/images/product/pro-03-plus.png"
   },
   {
-    "_id": 3,
     "name": "Demolition Breaker",
     "price": "190.00",
     "description": "A breaker is a powerful percussion hammer fitted to an excavator for demolishing hard (rock or concrete) structures. It is powered by an auxiliary hydraulic system from the excavator, which is fitted with a foot-operated valve for this purpose.",
@@ -25,8 +22,7 @@
     "image": "https://themetechmount.com/html/fixfellow/images/product/pro-04-plus.png"
   },
   {
-    "_id": 4,
-    "name": "Demolition Breaker",
+    "name": "DEWALT 4-Piece T-Shank Jig Saw Blade Case",
     "price": "190.00",
     "description": "A breaker is a powerful percussion hammer fitted to an excavator for demolishing hard (rock or concrete) structures. It is powered by an auxiliary hydraulic system from the excavator, which is fitted with a foot-operated valve for this purpose.",
     "quantity": "150",

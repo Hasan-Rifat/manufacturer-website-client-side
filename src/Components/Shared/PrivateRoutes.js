@@ -5,27 +5,12 @@ import Dashboard from "../Dashboard/Dashboard";
 import ManageAllOrders from "../Dashboard/ManageAllOrders";
 import ManageProducts from "../Dashboard/ManageProducts";
 import MyOrders from "../Dashboard/MyOrders";
+// import Order from "../Order/Order";
 import Profile from "../Profile/Profile";
 
 export const PrivateRoutes = [
-  { path: "/dashboard", name: "Dashboard", Component: Dashboard },
   { path: "/myorders", name: "MyOrders", Component: MyOrders },
   { path: "/addreview", name: "AddAReview", Component: AddAReview },
   { path: "/profile", name: "Profile", Component: Profile },
-];
-
-export const AdminRoutes = [
-  {
-    path: "/manageallorders",
-    name: "ManageAllOrders",
-    Component: ManageAllOrders,
-  },
-
-  { path: "/addaproduct", name: "AddAProduct", Component: AddAProduct },
-  { path: "/allusers", name: "AllUsers", Component: AllUsers },
-  {
-    path: "/manageproducts",
-    name: "ManageProducts",
-    Component: ManageProducts,
-  },
+  // { path: "order/:id", name: "Order", Component: Order },
 ];

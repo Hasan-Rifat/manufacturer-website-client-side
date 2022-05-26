@@ -12,57 +12,57 @@ const OurNews = () => {
           <h2 className="text-5xl font-bold text-accent py-1">
             Our Latest News
           </h2>
-          <div class="divider bg-primary h-1 w-28 mx-auto"></div>
+          <div className="divider bg-primary h-1 w-28 mx-auto"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div class="card bg-base-100 shadow-xl border-b-4 border-primary rounded-none">
+          <div className="card bg-base-100 shadow-xl border-b-4 border-primary rounded-none">
             <figure>
               <img src={b1} alt="Shoes" />
             </figure>
-            <div class="card-body">
+            <div className="card-body">
               <div className="flex justify-center pt-1">
-                <h2 class="card-title text-left text-accent">
+                <h2 className="card-title text-left text-accent">
                   Equipping Researchers in the Developing.
                 </h2>
-                <div class="badge badge-secondary">Admin</div>
+                <div className="badge badge-secondary">Admin</div>
               </div>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">Products</div>
-                <div class="badge">Best</div>
+              <div className="card-actions justify-end">
+                <div className="badge badge-outline">Products</div>
+                <div className="badge">Best</div>
               </div>
             </div>
           </div>
-          <div class="card bg-base-100 shadow-xl border-b-4 border-primary rounded-none">
+          <div className="card bg-base-100 shadow-xl border-b-4 border-primary rounded-none">
             <figure>
               <img src={b2} alt="Shoes" />
             </figure>
-            <div class="card-body">
+            <div className="card-body">
               <div className="flex justify-center pt-1">
-                <h2 class="card-title text-left text-accent">
+                <h2 className="card-title text-left text-accent">
                   Simple Steps for Replacing old Tiling{" "}
                 </h2>
-                <div class="badge badge-secondary">Admin</div>
+                <div className="badge badge-secondary">Admin</div>
               </div>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">Products</div>
-                <div class="badge ">New</div>
+              <div className="card-actions justify-end">
+                <div className="badge badge-outline">Products</div>
+                <div className="badge ">New</div>
               </div>
             </div>
           </div>
-          <div class="card bg-base-100 shadow-xl border-b-4 border-primary rounded-none">
+          <div className="card bg-base-100 shadow-xl border-b-4 border-primary rounded-none">
             <figure>
               <img src={b3} alt="Shoes" />
             </figure>
-            <div class="card-body">
+            <div className="card-body">
               <div className="flex justify-center pt-1">
-                <h2 class="card-title text-left text-accent">
+                <h2 className="card-title text-left text-accent">
                   Got a Leaking? Hire an experienced Plumber{" "}
                 </h2>
-                <div class="badge badge-secondary">Admin</div>
+                <div className="badge badge-secondary">Admin</div>
               </div>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">Products</div>
-                <div class="badge ">Best</div>
+              <div className="card-actions justify-end">
+                <div className="badge badge-outline">Products</div>
+                <div className="badge ">Best</div>
               </div>
             </div>
           </div>

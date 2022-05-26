@@ -52,10 +52,10 @@ const Skill = () => {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 pb-20 ">
-        <div class="hero-overlay bg-opacity-60 "></div>
+        <div className="hero-overlay bg-opacity-60 "></div>
         <div className="py-4">
           <h2 className="text-5xl font-bold text-white ">Portfolios</h2>
-          <div class="divider bg-primary h-1 w-28 mx-auto"></div>
+          <div className="divider bg-primary h-1 w-28 mx-auto"></div>
         </div>
         <Swiper
           slidesPerView={3}
@@ -70,18 +70,18 @@ const Skill = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {sidler.map((s, index) => (
               <SwiperSlide key={index}>
-                <div class="card bg-base-100 shadow-2xl w-full">
-                  <div class="card-body justify-center">
-                    <div class="avatar">
-                      <div class="w-40 mx-auto rounded">
+                <div className="card bg-base-100 shadow-2xl w-full">
+                  <div className="card-body justify-center">
+                    <div className="avatar">
+                      <div className="w-40 mx-auto rounded">
                         <img src={s.img} alt="" />
                       </div>
                     </div>
                     <div className="text-center">
-                      <h2 class="font-bold text-xl text-accent text-center py-4 my-2">
+                      <h2 className="font-bold text-xl text-accent text-center py-4 my-2">
                         <small>
                           <a
-                            class=" p-4 border-none hover:bg-primary bg-secondary  text-white hover:text-accent font-semibold px-8 py-3  rounded-2xl shadow-2xl"
+                            className=" p-4 border-none hover:bg-primary bg-secondary  text-white hover:text-accent font-semibold px-8 py-3  rounded-2xl shadow-2xl"
                             href={s.url}
                           >
                             {s.text}

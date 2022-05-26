@@ -52,11 +52,11 @@ const Blogs = () => {
       </h2>
       <div className="shadow-2xl">
         {qna.map((q) => (
-          <div key={q.id} class="accordion" id="accordionExample">
-            <div class="accordion-item bg-white border border-gray-200">
-              <h2 class="accordion-header mb-0" id="headingOne">
+          <div key={q.id} className="accordion" id="accordionExample">
+            <div className="accordion-item bg-white border border-gray-200">
+              <h2 className="accordion-header mb-0" id="headingOne">
                 <button
-                  class="
+                  className="
         accordion-button
         relative
         flex
@@ -84,11 +84,11 @@ const Blogs = () => {
               </h2>
               <div
                 id="collapseOne"
-                class="accordion-collapse collapse show"
+                className="accordion-collapse collapse show"
                 aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample"
               >
-                <div class="accordion-body py-4 px-5">
+                <div className="accordion-body py-4 px-5">
                   <p className="text-left  text-accent">{q.answer}</p>
                 </div>
               </div>

@@ -14,7 +14,7 @@ import img from "../../image/row-bgimage-1.png";
 
 const UserReviews = () => {
   const { data: reviews, isLoading } = useQuery("reviews", () =>
-    fetch("https://jsonplaceholder.typicode.com/users").then((res) =>
+    fetch("https://assignment-12-server-h.herokuapp.com/review").then((res) =>
       res.json()
     )
   );
@@ -32,13 +32,13 @@ const UserReviews = () => {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 pb-20 ">
-        <div class="hero-overlay bg-opacity-60 "></div>
+        <div className="hero-overlay bg-opacity-60 "></div>
         <div className="py-4">
           <h5 className="text-2xl font-semibold text-accent">TESTIMONIAL</h5>
           <h2 className="text-5xl font-bold text-accent py-3">
             What Our Customers Saying
           </h2>
-          <div class="divider bg-primary h-1 w-28 mx-auto"></div>
+          <div className="divider bg-primary h-1 w-28 mx-auto"></div>
         </div>
         <Swiper
           slidesPerView={3}
@@ -53,21 +53,18 @@ const UserReviews = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
             {reviews.map((review, index) => (
               <SwiperSlide key={index}>
-                <div class="card bg-base-100 shadow-2xl w-full">
-                  <div class="card-body justify-center">
-                    <div class="avatar justify-center">
-                      <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img
-                          src="https://api.lorem.space/image/face?hash=3174"
-                          alt=""
-                        />
+                <div className="card bg-base-100 shadow-2xl w-full">
+                  <div className="card-body justify-center">
+                    <div className="avatar justify-center">
+                      <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src={review.img} alt="" />
                       </div>
                     </div>
                     <div className="text-center">
-                      <h2 class="font-bold text-xl text-accent text-center py-4">
+                      <h2 className="font-bold text-xl text-accent text-center py-4">
                         <small>{review.name}</small>
                       </h2>
-                      <p class="text-accent text-center">
+                      <p className="text-accent text-center">
                         <small>
                           If a dog chews shoes whose shoes does he choose?
                         </small>
