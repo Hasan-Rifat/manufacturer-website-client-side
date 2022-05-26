@@ -1,8 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
-  const admin = false;
+  const [user, loading, error] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+  // console.log(admin);
   return (
     <section>
       <div className=" px-4">
@@ -22,38 +27,42 @@ const Dashboard = () => {
             <label for="my-drawer-2" class="drawer-overlay"></label>
             <ul class="menu  bg-[#f9fafb] p-4 overflow-y-auto w-80 text-base-content">
               {/* <!-- Sidebar content here --> */}
-              <li>
-                <Link
-                  className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
-                  to="/dashboard"
-                >
-                  Manage Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
-                  to="/dashboard/addaproduct"
-                >
-                  AddAProduct
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
-                  to="/dashboard/manageallorders"
-                >
-                  Manage All orders
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
-                  to="/dashboard/allusers"
-                >
-                  AllUsers
-                </Link>
-              </li>
+              {admin && (
+                <>
+                  <li>
+                    <Link
+                      className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
+                      to="/dashboard"
+                    >
+                      Manage Products
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
+                      to="/dashboard/addaproduct"
+                    >
+                      Add A Product
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
+                      to="/dashboard/manageallorders"
+                    >
+                      Manage All orders
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
+                      to="/dashboard/allusers"
+                    >
+                      All Users
+                    </Link>
+                  </li>
+                </>
+              )}
               {!admin && (
                 <>
                   <li>
@@ -69,7 +78,7 @@ const Dashboard = () => {
                       className="border-none hover:bg-secondary rounded-xl hover:text-white text-accent font-semibold px-8 py-3 bg-primary my-4"
                       to="/dashboard/addreview"
                     >
-                      AddAReview
+                      Add A Review
                     </Link>
                   </li>
                 </>

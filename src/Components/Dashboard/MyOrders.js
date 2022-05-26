@@ -1,15 +1,30 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import { Navigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const MyOrders = () => {
   const [user, loading] = useAuthState(auth);
   const email = user.email;
-  const url = `http://localhost:5000/orders?email=${email}`;
+  const url = `https://assignment-12-server-h.herokuapp.com/orders?email=${email}`;
   const { data: userEmail, isLoading } = useQuery("userEmail", () =>
-    fetch(url).then((res) => res.json())
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => {
+      console.log("res", res);
+      if (res.status === 401 || res.status === 403) {
+        signOut(auth);
+        localStorage.removeItem("accessToken");
+        Navigate("/");
+      }
+      return res.json();
+    })
   );
   if (isLoading || loading) {
     return <Loading />;

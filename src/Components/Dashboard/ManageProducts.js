@@ -5,9 +5,12 @@ import Product from "./Product";
 
 const ManageProducts = () => {
   const { data: products, isLoading } = useQuery("product", () =>
-    fetch("https://assignment-12-server-h.herokuapp.com/products").then((res) =>
-      res.json()
-    )
+    fetch("https://assignment-12-server-h.herokuapp.com/products", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading />;

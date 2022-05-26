@@ -14,9 +14,12 @@ import img from "../../image/row-bgimage-1.png";
 
 const UserReviews = () => {
   const { data: reviews, isLoading } = useQuery("reviews", () =>
-    fetch("https://assignment-12-server-h.herokuapp.com/review").then((res) =>
-      res.json()
-    )
+    fetch("https://assignment-12-server-h.herokuapp.com/review", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading />;
@@ -65,9 +68,7 @@ const UserReviews = () => {
                         <small>{review.name}</small>
                       </h2>
                       <p className="text-accent text-center">
-                        <small>
-                          If a dog chews shoes whose shoes does he choose?
-                        </small>
+                        <small>{review.review}</small>
                       </p>
                     </div>
                   </div>

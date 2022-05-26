@@ -16,10 +16,15 @@ const Order = () => {
   } = useForm();
   const { id } = useParams();
 
-  const url = `http://localhost:5000/products/${id}`;
+  const url = `https://assignment-12-server-h.herokuapp.com/products/${id}`;
 
   const { data: p, isLoading } = useQuery("p", () =>
-    fetch(url).then((res) => res.json())
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
   if (isLoading || loading) {
     return <Loading />;
@@ -35,13 +40,17 @@ const Order = () => {
       quantity: parseInt(data.quantity),
     };
     // console.log(order.quantity);
+    if (order.quantity < parseInt(p.miniumQuantity)) {
+      toast.error("You cannot order more than the available quantity");
+    }
 
     if (order.quantity >= parseInt(p.miniumQuantity)) {
       // oder place
-      fetch("http://localhost:5000/order", {
+      fetch("https://assignment-12-server-h.herokuapp.com/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(order),
       })

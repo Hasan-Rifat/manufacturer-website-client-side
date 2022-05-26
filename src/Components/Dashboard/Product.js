@@ -16,7 +16,7 @@ const Product = ({ product }) => {
 
         <div className="px-5 pb-5">
           <h5 className="text-xl text-left font-semibold tracking-tight text-gray-900 dark:text-white">
-            <small>{name.slice(0, 18)}</small>
+            <small>{name?.slice(0, 18)}</small>
           </h5>
           <p className="text-left">
             <small>{description.slice(0, 100)}</small>
