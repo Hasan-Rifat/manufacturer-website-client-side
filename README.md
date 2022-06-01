@@ -1,4 +1,4 @@
 ### Live website 
 
- [Live site]([https://electric-tools-store.web.app/]).
+ Live site https://electric-tools-store.web.app/
 
