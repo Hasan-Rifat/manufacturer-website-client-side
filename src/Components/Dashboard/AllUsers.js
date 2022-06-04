@@ -9,7 +9,7 @@ const AllUsers = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://assignment-12-server-h.herokuapp.com/user", {
+    fetch("http://localhost:5000/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -19,6 +19,7 @@ const AllUsers = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  console.log(users);
   return (
     <div className="w-full max-w-7xl mx-auto px-4 mt-4">
       <div class="overflow-x-auto">

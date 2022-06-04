@@ -15,9 +15,6 @@ const useAdmin = (user) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          /* console.log("data inside useToken", data);
-          const accessToken = data.token;
-          localStorage.getItem("accessToken", accessToken); */
           setAdmin(data.admin);
           setAdminLoading(false);
           console.log(data.admin);
