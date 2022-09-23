@@ -2,8 +2,8 @@ import React from "react";
 
 const Star = () => {
   return (
-    <section className="py-12 px-4">
-      <div className="max-w-7xl mx-auto  shadow-2xl rounded ">
+    <section className="py-16 px-4 ">
+      <div className="max-w-7xl mx-auto  shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  rounded-2xl ">
         <div className="  grid lg:grid-cols-3 p-5">
           <div className="stat">
             <div className="stat-figure text-primary">

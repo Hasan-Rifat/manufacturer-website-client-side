@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -8,11 +8,21 @@ const Navbar = () => {
   //   const user = true;
   // const user = false;
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
+  const [color, setColor] = useState(false);
   const logout = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
+
+  const changeBg = () => {
+    if (window.scrollY >= 70) {
+      return setColor(true);
+    } else {
+      return setColor(false);
+    }
+  };
+  window.addEventListener("scroll", changeBg);
   const menuItem = (
     <>
       <li>
@@ -80,10 +90,16 @@ const Navbar = () => {
   );
 
   return (
-    <header className="z-50 bg-white shadow-2xl sticky top-0">
+    <header
+      className={`z-50  ${
+        color
+          ? "bg-white shadow-2xl fixed left-0 right-0 top-0"
+          : "bg-transparent  absolute left-0 right-0 top-0 bg-base-100 shadow-[0px_4px_80px_rgba(0,0,0,0.1)]"
+      }`}
+    >
       <div className=" ">
         <div className=" max-w-7xl mx-auto px-4">
-          <div className="navbar bg-base-100">
+          <div className="navbar  rounded-[10px] ">
             <div className="navbar-start">
               <Link
                 to="/"
