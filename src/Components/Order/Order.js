@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
+import { toast } from "react-toastify";
 
 const Order = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -16,7 +16,7 @@ const Order = () => {
   } = useForm();
   const { id } = useParams();
 
-  const url = `https://warehouse-management-server-o6rz.vercel.app/products/${id}`;
+  const url = `https://assignment-12-server-h.herokuapp.com/products/${id}`;
 
   const { data: p, isLoading } = useQuery("p", () =>
     fetch(url, {
@@ -46,7 +46,7 @@ const Order = () => {
 
     if (order.quantity >= parseInt(p.miniumQuantity)) {
       // oder place
-      fetch("https://warehouse-management-server-o6rz.vercel.app/order", {
+      fetch("https://assignment-12-server-h.herokuapp.com/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

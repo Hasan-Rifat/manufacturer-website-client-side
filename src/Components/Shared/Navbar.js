@@ -35,7 +35,7 @@ const Navbar = () => {
           Blogs
         </NavLink>
       </li>
-      <li>
+      {/*  <li>
         <NavLink
           className="my-2 mr-5   text-accent font-semibold"
           to="/portfolio"
@@ -43,6 +43,7 @@ const Navbar = () => {
           Portfolio
         </NavLink>
       </li>
+       */}
 
       {user && (
         <li>

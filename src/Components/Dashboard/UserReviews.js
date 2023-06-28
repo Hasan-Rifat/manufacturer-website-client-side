@@ -7,14 +7,14 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
-import { useQuery } from "react-query";
 import { FreeMode, Pagination } from "swiper";
-import img from "../../image/row-bgimage-1.png";
+import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
+import img from "../../image/row-bgimage-1.png";
 
 const UserReviews = () => {
   const { data: reviews, isLoading } = useQuery("reviews", () =>
-    fetch("https://warehouse-management-server-o6rz.vercel.app/review", {
+    fetch("https://assignment-12-server-h.herokuapp.com/review", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

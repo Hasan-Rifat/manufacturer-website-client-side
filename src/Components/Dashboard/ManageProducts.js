@@ -5,7 +5,7 @@ import Product from "./Product";
 
 const ManageProducts = () => {
   const { data: products, isLoading } = useQuery("product", () =>
-    fetch("https://warehouse-management-server-o6rz.vercel.app/products", {
+    fetch("https://assignment-12-server-h.herokuapp.com/products", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

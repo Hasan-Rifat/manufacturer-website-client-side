@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import OrderRows from "./OrderRows";
 
 const AllProducts = () => {
   /*   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("https://warehouse-management-server-o6rz.vercel.app/orders")
+    fetch("https://assignment-12-server-h.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []); */
