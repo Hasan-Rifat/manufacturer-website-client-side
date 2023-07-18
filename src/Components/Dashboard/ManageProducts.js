@@ -5,7 +5,7 @@ import Product from "./Product";
 
 const ManageProducts = () => {
   const { data: products, isLoading } = useQuery("product", () =>
-    fetch("https://assignment-12-server-h.herokuapp.com/products", {
+    fetch("https://manufacturer-website-server-seven.vercel.app/products", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -15,6 +15,7 @@ const ManageProducts = () => {
   if (isLoading) {
     return <Loading />;
   }
+
   return (
     <section className="max-w-7xl mx-auto px-4 pb-12">
       <div className="py-4">

@@ -14,7 +14,7 @@ import img from "../../image/row-bgimage-1.png";
 
 const UserReviews = () => {
   const { data: reviews, isLoading } = useQuery("reviews", () =>
-    fetch("https://assignment-12-server-h.herokuapp.com/review", {
+    fetch("https://manufacturer-website-server-seven.vercel.app/review", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

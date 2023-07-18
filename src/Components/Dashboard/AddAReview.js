@@ -14,7 +14,7 @@ const AddAReview = () => {
       review: data.review,
     };
     console.log(review);
-    fetch("https://assignment-12-server-h.herokuapp.com/review", {
+    fetch("https://manufacturer-website-server-seven.vercel.app/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -4,7 +4,7 @@ import OrderRows from "./OrderRows";
 const AllProducts = () => {
   /*   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("https://assignment-12-server-h.herokuapp.com/orders")
+    fetch("https://manufacturer-website-server-seven.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []); */

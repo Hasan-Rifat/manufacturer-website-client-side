@@ -9,7 +9,7 @@ import Loading from "../Shared/Loading";
 const MyOrders = () => {
   const [user, loading] = useAuthState(auth);
   const email = user.email;
-  const url = `https://assignment-12-server-h.herokuapp.com/orders?email=${email}`;
+  const url = `https://manufacturer-website-server-seven.vercel.app/orders?email=${email}`;
   const { data: userEmail, isLoading } = useQuery("userEmail", () =>
     fetch(url, {
       method: "GET",

@@ -16,7 +16,7 @@ const Order = () => {
   } = useForm();
   const { id } = useParams();
 
-  const url = `https://assignment-12-server-h.herokuapp.com/products/${id}`;
+  const url = `https://manufacturer-website-server-seven.vercel.app/products/${id}`;
 
   const { data: p, isLoading } = useQuery("p", () =>
     fetch(url, {
@@ -46,7 +46,7 @@ const Order = () => {
 
     if (order.quantity >= parseInt(p.miniumQuantity)) {
       // oder place
-      fetch("https://assignment-12-server-h.herokuapp.com/order", {
+      fetch("https://manufacturer-website-server-seven.vercel.app/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

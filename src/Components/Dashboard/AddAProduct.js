@@ -21,7 +21,7 @@ const AddAProduct = () => {
       description: description,
     };
 
-    fetch("https://assignment-12-server-h.herokuapp.com/products", {
+    fetch("https://manufacturer-website-server-seven.vercel.app/products", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
